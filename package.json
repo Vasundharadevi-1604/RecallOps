@@ -1,0 +1,43 @@
+{
+  "name": "recallops-backend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Hindsight-powered incident response backend",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "dev:frontend": "npm run dev --prefix frontend",
+    "build": "tsc -p tsconfig.json",
+    "build:frontend": "npm run build --prefix frontend",
+    "build:all": "npm run build && npm run build:frontend",
+    "start": "node dist/src/server.js",
+    "seed": "tsx scripts/seed.ts",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@vectorize-io/hindsight-client": "^0.5.0",
+    "better-sqlite3": "^11.8.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "groq-sdk": "^0.12.0",
+    "nodemailer": "^10.0.12",
+    "pino": "^9.6.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.10",
+    "@types/nodemailer": "^8.0.2",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}

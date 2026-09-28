@@ -1,0 +1,17 @@
+services:
+  hindsight:
+    image: ghcr.io/vectorize-io/hindsight:latest
+    ports: ["8888:8888"]
+    volumes: ["hindsight-data:/data"]
+  recallops:
+    build: .
+    ports: ["4000:4000"]
+    env_file: .env
+    environment:
+      HINDSIGHT_BASE_URL: http://hindsight:8888
+      DATABASE_PATH: /app/data/recallops.sqlite
+    volumes: ["recallops-data:/app/data"]
+    depends_on: [hindsight]
+volumes:
+  hindsight-data:
+  recallops-data:
